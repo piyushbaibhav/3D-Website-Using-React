@@ -15,46 +15,46 @@ const Customizer = () => {
   const snap = useSnapshot (state);
   return (
     <AnimatePresence>
-      {!snap.intro &&(
+      {!snap.intro && (
         <>
           <motion.div
             key="custom"
-            className='absolute top-0 left-0 z-10'
-            {...slideAnimation('left')}
+            className="absolute top-0 left-0 z-10"
+            {...slideAnimation("left")}
           >
-            <div className='flex items-center min-h-screen'>
-              <div className='editortabs-container tabs'>
+            <div className="flex items-center min-h-screen">
+              <div className="editortabs-container tabs">
                 {EditorTabs.map((tab) => (
-                  <Tab 
-                    key={tab.name}
-                    tab={tab}
-                    handclick={() => {}}
-                  />
+                  <Tab key={tab.name} tab={tab} handclick={() => {}} />
                 ))}
-
               </div>
             </div>
-
           </motion.div>
 
           <motion.div
-            className='absolute z-10 top-5 right-5'
+            className="absolute z-10 top-5 right-5"
             {...fadeAnimation}
           >
-            <CustomButton 
+            <CustomButton
               type="filled"
               title="Piche Jao"
-              handleclick={() => state.intro = true}
+              handleclick={() => (state.intro = true)}
               customStyles="w-fit px-4 py-2.5 font-bold text-sm"
             />
           </motion.div>
-          
-        
 
+          <motion.div
+            className="filtertabs-container"
+            {...slideAnimation("up")}
+          >
+            {EditorTabs.map((tab) => (
+              <Tab key={tab.name} tab={tab} handclick={() => {}} />
+            ))}
+          </motion.div>
         </>
       )}
     </AnimatePresence>
-  )
+  );
 }
 
 export default Customizer
