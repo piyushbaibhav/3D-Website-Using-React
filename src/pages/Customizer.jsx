@@ -47,8 +47,13 @@ const Customizer = () => {
             className="filtertabs-container"
             {...slideAnimation("up")}
           >
-            {EditorTabs.map((tab) => (
-              <Tab key={tab.name} tab={tab} handclick={() => {}} />
+            {FilterTabs.map((tab) => (
+              <Tab 
+                key={tab.name} 
+                tab={tab} 
+                isFilterTab
+                isActiveTab=""
+                handclick={() => {}} />
             ))}
           </motion.div>
         </>
